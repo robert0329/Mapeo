@@ -18,17 +18,17 @@ namespace DAL
         public DbSet<Grupos>grupo { get; set; }
         public DbSet<GruposEstudiantes>GruposEstudiante { get; set; }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Grupos>()
-                .HasMany<Estudiantes>(g => g.Estudiante)
-                .WithMany(e => e.Grupos)
-                .Map(Ge =>
-                {
-                    Ge.MapLeftKey("GrupoId");
-                    Ge.MapRightKey("EstudianteId");
-                    Ge.ToTable("GruposEstudiantes");
-                });
-        }
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<Grupos>()
+        //        .HasMany<Estudiantes>(g => g.Estudiante)
+        //        .WithMany(e => e.Grupos)
+        //        .Map(Ge =>
+        //        {
+        //            Ge.MapLeftKey("GrupoId");
+        //            Ge.MapRightKey("EstudianteId");
+        //            Ge.ToTable("GruposEstudiantes");
+        //        });
+        //}
     }
 }

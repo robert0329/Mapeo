@@ -12,17 +12,17 @@ namespace Entidades
         [Key]
         public int GrupoId { get; set; }
         public string Nombres { get; set; }
-        public List<Estudiantes>Estudiante { get; set; }
+        //public List<Estudiantes>Estudiante { get; set; }
 
         public Grupos()
         {
-            this.Estudiante = new List<Estudiantes>();
+            //this.Estudiante = new List<Estudiantes>();
         }
         public Grupos(int GrupoId , string nombreGrupos)
         {
             this.GrupoId = GrupoId;
             this.Nombres = nombreGrupos;
-            this.Estudiante = new List<Estudiantes>();
+            //this.Estudiante = new List<Estudiantes>();
         }
     }
 }

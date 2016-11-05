@@ -36,6 +36,7 @@ namespace BLL
             {
                 try
                 {
+                   Estudiante =
                     Conn.Estudiante.Find(Id);
                 }
                 catch (Exception)
@@ -55,6 +56,28 @@ namespace BLL
                 try
                 {
                     Lista = Conn.Estudiante.ToList();
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+            return Lista;
+        }
+
+        public static List<Estudiantes> GetList(List<GruposEstudiantes> ge)
+        {
+            var Lista = new List<Estudiantes>();
+            using (var Conn = new DetallesMapeoDB())
+            {
+                try
+                {
+                    foreach (var Estudiante in ge)
+                    {
+                        Lista.Add(Conn.Estudiante.Find(Estudiante.EstudianteId));
+                    }
+                   // Lista = Conn.Estudiante.Where(p => p.EstudianteId == ge.e);
                 }
                 catch (Exception)
                 {
